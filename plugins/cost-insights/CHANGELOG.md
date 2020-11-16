@@ -1,5 +1,12 @@
 # @backstage/plugin-cost-insights
 
+## 0.3.1
+
+### Patch Changes
+
+- 17a9f48f6: remove excessive margin from cost overview banner
+- 259d848ee: Fix savings/excess display calculation
+
 ## 0.3.0
 
 ### Minor Changes
