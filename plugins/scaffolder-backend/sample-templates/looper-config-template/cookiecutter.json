@@ -1,0 +1,8 @@
+{
+    "directory_name": "",
+    "file_name": ".looper",
+    "slack_channel": "",
+    "build_command": "./gradlew build",
+    "publish_command": "./gradlew publish",
+    "publication_id": "maven"
+}

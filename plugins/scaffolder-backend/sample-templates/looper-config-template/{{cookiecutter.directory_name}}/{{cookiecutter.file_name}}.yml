@@ -1,0 +1,49 @@
+inherit:
+  - job://looper-templates:gradle
+  - job://looper-templates:slack
+  - job://looper-templates:strict
+
+triggers:
+  - manual: Build
+  - manual:
+      name: Publish
+      call: publish
+
+tools:
+  jdk: 8
+  android:
+    - tools
+    - platform-tools
+    - build-tools;29.0.3
+    - platforms;android-29
+
+envs:
+  global:
+    variables:
+      NEXUS_PASSWORD: "%{credentials.password('walmart-deployment')}"
+      NEXUS_USERNAME: "%{credentials.username('walmart-deployment')}"
+      SLACK_CHANNEL: "{{cookiecutter.slack_channel}}"
+
+flows:
+  default:
+    try: {{cookiecutter.build_command}}
+    catch:
+      - if: $BUILD_CAUSE_GITHUBBRANCHCAUSE
+        then:
+          call: slack-failure
+      - fail($flowErrorMessage)
+  pr:
+    call: default
+  publish:
+    - call: default
+    - try:
+        - {{cookiecutter.publish_command}}
+        - exposeVars(lib/build/publications/{{cookiecutter.publication_id}}/pom-default.xml):
+            vars:
+              groupId: 'project/groupId'
+              artifactId: 'project/artifactId'
+              version: 'project/version'
+        - call: slack-success(title = "Artifacts published", message = "${groupId}:${artifactId}:${version}")
+      catch:
+        - call: slack-failure
+        - fail($flowErrorMessage)
