@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: Template
+metadata:
+  name: ern-miniapp-template
+  title: Electrode Native MiniApp Template
+  description: Create an Electrode Native MiniApp
+  tags:
+    - recommended
+    - mobile
+    - electrode-native
+spec:
+  owner: web@example.com
+  templater: cookiecutter
+  type: other
+  path: '.'
+  schema:
+    required:
+      - component_id
+      - description
+    properties:
+      component_id:
+        title: Name
+        type: string
+        description: Unique name of the component
+      description:
+        title: Description
+        type: string
+        description: Help others understand what this website is for.

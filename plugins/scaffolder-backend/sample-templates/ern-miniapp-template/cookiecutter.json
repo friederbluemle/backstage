@@ -1,0 +1,4 @@
+{
+  "miniapp_name": "",
+  "component_id": "{{ cookiecutter.miniapp_name }}-miniapp"
+}

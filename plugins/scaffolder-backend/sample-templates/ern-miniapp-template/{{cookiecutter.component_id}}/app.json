@@ -1,0 +1,4 @@
+{
+  "name": "{{ cookiecutter.component_id }}",
+  "displayName": "{{ cookiecutter.component_id }}"
+}
