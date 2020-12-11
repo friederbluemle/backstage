@@ -7,6 +7,7 @@ metadata:
   tags:
     - recommended
     - mobile
+    - ern
     - electrode-native
 spec:
   owner: web@example.com
@@ -15,14 +16,9 @@ spec:
   path: '.'
   schema:
     required:
-      - component_id
-      - description
+      - miniapp_name
     properties:
-      component_id:
+      miniapp_name:
         title: Name
         type: string
-        description: Unique name of the component
-      description:
-        title: Description
-        type: string
-        description: Help others understand what this website is for.
+        description: Unique name of the miniapp
