@@ -23,8 +23,8 @@ Requests towards this repo.
 
 Backstage provides the `@backstage/create-app` package to scaffold standalone
 instances of Backstage. You will need to have
-[Node.js](https://nodejs.org/en/download/) Active LTS Release installed
-(currently v14), [Yarn](https://classic.yarnpkg.com/en/docs/install) and
+[Node.js](https://nodejs.org/en/download/) 12 or later installed,
+[Yarn](https://classic.yarnpkg.com/en/docs/install) and
 [Python](https://www.python.org/downloads/) (although you likely have it
 already). You will also need to have
 [Docker](https://docs.docker.com/engine/install/) installed to use some features
